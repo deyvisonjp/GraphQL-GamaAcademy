@@ -1,0 +1,11 @@
+{
+  "name": "@dev-demands/root",
+  "version": "1.0.0",
+  "description": "Projeto Educativo - Criação de um software para organizar demandas de um programdor Tecnologia utilizadas (Monorepo): - Node - Graph QL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
