@@ -1,6 +1,4 @@
 import { createServer, request } from 'http';
-import { readFile } from 'fs';
-import { resolve } from 'path';
 import { parse } from 'querystring'; // Configura/Formatar os dados recebidos
 
 // Criação e configuração inicial do router
@@ -18,35 +16,6 @@ const server = createServer((req, res) => {
          res.end();
          break;
       }
-      case '/sign-in': {
-         const filePath = resolve(__dirname, './pages/sign-in.html');
-         readFile(filePath, (error, file) => {
-            if (error) {
-               res.writeHead(500, "Can't process HTML file.");
-               res.end();
-               return;
-            }
-            res.writeHead(200);
-            res.write(file);
-            res.end();
-         });
-         break;
-      }
-      case '/home': {
-         const filePath = resolve(__dirname, './pages/home.html');
-         readFile(filePath, (error, file) => {
-            if (error) {
-               res.writeHead(500, "Can't process HTML file.");
-               res.end();
-               return;
-            }
-            res.writeHead(200);
-            res.write(file);
-            res.end();
-         });
-         break;
-      }
-
       case '/authenticate': {
          let data = '';
          req.on('data', (chunk) => {
@@ -55,9 +24,6 @@ const server = createServer((req, res) => {
          req.on('end', () => {
             // console.log(parse(data))
             const params = parse(data);
-            res.writeHead(301, {
-               Location: '/home',
-            });
             res.end()
          });
          break;

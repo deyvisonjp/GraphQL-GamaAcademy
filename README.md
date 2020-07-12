@@ -29,4 +29,10 @@ Tecnologia utilizadas (Monorepo):
 - Estrutura das pastas (funcionando linux):   
 ![Estrutura inicial das pastas](./img/estrutura-pastas.png?raw=true "Optional Title")
 
-**Configurar package.json**
+## Pacotes com ReactJs
+
+- `pnpx create-react-app packages/web` -> 'pnpx' Serve para rodar comandos npx;
+- Excluir node_modules e yarn.lock criado na pasta web;
+- `pnpm i --filter @dev-demands/web` -> ons. renomear name=@dev-demands/web;
+- `pnpm i react-router-dom --filter @dev-demands/web`;
+- `pnpm run start --filter @dev-demands/web` -> Executar o react
