@@ -35,4 +35,36 @@ Tecnologia utilizadas (Monorepo):
 - Excluir node_modules e yarn.lock criado na pasta web;
 - `pnpm i --filter @dev-demands/web` -> ons. renomear name=@dev-demands/web;
 - `pnpm i react-router-dom --filter @dev-demands/web`;
-- `pnpm run start --filter @dev-demands/web` -> Executar o react
+- `pnpm run start --filter @dev-demands/web` -> Executar com react
+
+## Instalando express para requisições
+
+- `pnpm install express --filter @dev-demands/server`   
+_midlewares: são padroes(pattern's) de implementação para encaixar várias funções para rodarem em sequência_
+- Exemplo COM EXPRESS     
+`
+server.get('/status', (_, response) => {
+   response.send({
+      status: 'Okay'
+   })
+})
+` 
+- Exemplo SEM EXPRESS     
+`
+const server = createServer((req, res) => {
+   switch (req.url) {
+      case '/status': {
+         res.writeHead(200, {
+            'Content-Type': 'application/json',
+         });
+         res.write(
+            JSON.stringify({
+               status: 'Okay'
+            })
+         );
+         res.end();
+         break;
+      }
+` 
+
+ 

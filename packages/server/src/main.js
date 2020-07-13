@@ -1,38 +1,22 @@
-import { createServer, request } from 'http';
-import { parse } from 'querystring'; // Configura/Formatar os dados recebidos
+import express, { response } from 'express';
+// Abaixo, duas importações que eram usadas sem o express
+// import { createServer, request } from 'http';
+// import { parse } from 'querystring'; // Configura/Formata os dados recebidos
 
-// Criação e configuração inicial do router
-const server = createServer((req, res) => {
-   switch (req.url) {
-      case '/status': {
-         res.writeHead(200, {
-            'Content-Type': 'application/json',
-         });
-         res.write(
-            JSON.stringify({
-               status: 'Okay'
-            })
-         );
-         res.end();
-         break;
-      }
-      case '/authenticate': {
-         let data = '';
-         req.on('data', (chunk) => {
-            data += chunk;
-         });
-         req.on('end', () => {
-            // console.log(parse(data))
-            const params = parse(data);
-            res.end()
-         });
-         break;
-      }
-      default: {
-         res.writeHead(404, 'Service not found');
-         res.end();
-      }
-   }
+const server = express();
+
+server.get('/status', (_, response) => {
+   response.send({
+      status: 'Okay'
+   });
+});
+
+server.post('/authenticate', express.json(), (request, response) => {
+   console.log(
+      'E-mail', request.body.email,
+      'Senha', request.body.password
+   );
+   response.send();
 });
 
 // env -> Objeto com as variaveis de ambiente
