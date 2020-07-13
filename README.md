@@ -1,9 +1,12 @@
 # Gama Academy - GraphQL 
 
 ## Projeto Educativo - Criação de um software para organizar demandas de um programdor
-Tecnologia utilizadas (Monorepo):
+Tecnologias utilizadas (Monorepo):
 - Node
+- Express
+- React
 - Graph QL
+- Apollo
 
 
 ### Iniciar projeto com :
@@ -70,4 +73,24 @@ const server = createServer((req, res) => {
 
 - Instalar a extensão do cors, para tratamento de erros   
 `pnpm i cors --filter dev-demands/server` 
- 
+
+## API REST
+
+#### Como funciona RESTful?
+- Recebe parâmetros e envia dados usando como JSON como formato;
+- Todas as operações são abstraidas dentro dos metodos HTTP (GET, POST, PUT, PATCH, DELETE e OPTIONS);
+- As rotas, ou endpoints são baseadas nas entidades das aplicações (ex. /users/:userID);
+
+#### Problemas
+APIs RESTful são limitadas pelos protocolos que a definem, pois não é possível lidar com as relações entre entidades, sendo necessária a implementação manual.   
+   
+- Dados insuficientes nas API - (Under-Fetching);
+- Dados mais que suficientes nas APIs - (Over-Fetching); 
+
+## Apollo Server 
+Plataforma que auxilia no trabalho com Graphql
+
+Instalação
+- `pnpm i apollo-server-express --filter @dev-demands/server` 
+
+- Ao terḿino da configuração, será gerada uma endpoint (/graphql) para testes.
