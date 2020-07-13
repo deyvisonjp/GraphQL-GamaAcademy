@@ -66,5 +66,8 @@ const server = createServer((req, res) => {
          break;
       }
 ` 
+## Requisição assíncrona
 
+- Instalar a extensão do cors, para tratamento de erros   
+`pnpm i cors --filter dev-demands/server` 
  
